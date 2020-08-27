@@ -47,7 +47,7 @@ FuelTank - object reference.
          
         public void Drive()
         {
-            Counter1.Increment(999999);
+            Counter1.Increment(1000080);
             Level1.BurnFeul(20);
         }
 
@@ -58,9 +58,10 @@ FuelTank - object reference.
             Level1.BurnFeul(20);
         }
 
+        //A ToString() override that will output the format “A Blue Chevy Cruze with 60050KM on the odometer, that has enough fuel to travel 65KM.”
         public override string ToString()
         {
-            return $"This is a {Make} {Model} {Color} with {Counter1.Counter}KM on the odometer, that has feul capacity {Level1.Level}";
+            return $"A {Color} {Make} {Model} with {Counter1.Counter}KM on the odometer, that has enough fuel to travel {Level1.Level}KM";
         }
     }
 }

@@ -19,23 +19,13 @@ namespace c_oop_practice_car_class_shailza85
 
             private set
             {
-                if (value > 999999)
-                {
-                    temp = value + 999999;
-                    temp1 = temp - 100000;
-                    _counter = temp1;
-                }
-
-                else
-                {
+                if (value > 999999) 
+                { 
+                    value -= 999999; 
                     _counter = value;
                 }
-               
-               /* if (value > 999999)
-                {
-                    temp = value - 999999;
-                }
-                _counter = temp;*/
+              
+
             }
         }
 

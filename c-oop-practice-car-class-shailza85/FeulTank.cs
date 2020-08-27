@@ -71,14 +71,13 @@ namespace c_oop_practice_car_class_shailza85
 
         public void BurnFeul(double litres)
         {
-            //double ltr = (litres / Capacity);
-           // Capacity = _capacity - ltr;
+           
             Level -= litres;
         }
 
         public void Fill(double litres)
         {
-            //double ltrs = litres;
+         
             Level += litres;
         }
 

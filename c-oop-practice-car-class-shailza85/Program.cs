@@ -6,6 +6,8 @@ namespace c_oop_practice_car_class_shailza85
     {
         static void Main(string[] args)
         {
+
+            // Car class objects
             Car Toyota = new Car()
             {
                 Make = "Toyota",
@@ -39,6 +41,7 @@ namespace c_oop_practice_car_class_shailza85
 
         }
 
+        //Method to test
         public static void TestCar(Car cTest)
         {
             Console.WriteLine(cTest);
