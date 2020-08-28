@@ -1,61 +1,46 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace c_oop_practice_car_class_shailza85
+namespace CSharpOOP
 {
     class Program
     {
         static void Main(string[] args)
         {
-
-            // Car class objects
-            Car Toyota = new Car()
+            // Create a car with a motor.
+            Car myCar = new Car()
             {
-                Make = "Toyota",
-                Model = "Camry",
-                Color = "Red",
-                MaxOccupancy = 3,
-                FeulEfficiency = 5.5
+                Make = "Who Knows",
+                Model = "Badge Missing",
+                Color = "Rusty",
+                Motor = new Motor(4),
+                Odometer = new Odometer(564291),
+                FuelTank = new FuelTank()
             };
 
-            Car Nissan = new Car()
+            // Point a variable at the old motor.
+            Motor oldMotor = myCar.Motor;
+
+            // Create a new motor.
+            Motor newMotor = new Motor()
             {
-                Make = "Nissan",
-                Model = "Corolla",
-                Color = "Blue",
-                MaxOccupancy = 5,
-                FeulEfficiency = 8.5
+                FuelEfficiency = 10
             };
 
-            Car Chevrolet = new Car()
-            {
-                Make = "Chevrolet",
-                Model = "Cruze",
-                Color = "Green",
-                MaxOccupancy = 7,
-                FeulEfficiency = 10.5
-            };
+            // TODO: Fix this:
+            // This won't work because of the way we implemented referential integrity.
+            // It will set the car of the motor, but not the motor of the car. So the car will effectively have newMotor as it's motor, and an orphan motor that thinks it's still in the car.
+            oldMotor.Car = myCar;
 
-            TestCar(Toyota);
-            TestCar(Nissan);
-            TestCar(Chevrolet);
+            // Change the car's motor to the new motor.
+            myCar.Motor = newMotor;
+
+            // Referential integrity should make the car on old motor null.
+            Console.WriteLine(oldMotor.Car == null ? "NULL" : oldMotor.Car.ToString());
+
 
         }
 
-        //Method to test
-        public static void TestCar(Car cTest)
-        {
-            Console.WriteLine(cTest);
-            cTest.Drive();
-            Console.WriteLine(cTest);
-            try
-            {
-                cTest.Drive(20);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            Console.WriteLine(cTest);
-        }
     }
 }
