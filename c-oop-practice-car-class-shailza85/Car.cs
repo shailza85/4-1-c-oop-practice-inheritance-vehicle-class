@@ -19,9 +19,9 @@ namespace CSharpOOP
         A ToString() override that will output the format “A Blue Chevy Cruze with 60050KM on the odometer, that has enough fuel to travel 65KM.”
         Both a default and greedy constructor (initialize object references as a new instance).
     */
-    public class Car
+    public class Car: Vehicle
     {
-        public string Make { get; set; }
+      /* public string Make { get; set; }
         public string Model { get; set; }
         public string Color { get; set; }
         public Seat[] Seats { get; set; }
@@ -48,8 +48,8 @@ namespace CSharpOOP
                 _motor = value;
             }
         }
-
-        private Odometer _odometer;
+        */
+        /*private Odometer _odometer;
         public Odometer Odometer
         {
             get
@@ -71,8 +71,8 @@ namespace CSharpOOP
                 _odometer = value;
             }
         }
-
-        private FuelTank _fuelTank;
+        */
+       /* private FuelTank _fuelTank;
         public FuelTank FuelTank
         {
             get
@@ -100,7 +100,7 @@ namespace CSharpOOP
                 // Actually assign the reference variable in this object.
                 _fuelTank = value;
             }
-        }
+        }*/
 
         public void Drive()
         {
@@ -110,7 +110,7 @@ namespace CSharpOOP
         public void Drive(int km)
         {
             Seats[0].Occupied = true;
-            Odometer.Increment(km);
+            //Odometer.Increment(km);
             FuelTank.BurnFuel(km / Motor.FuelEfficiency);
             Seats[0].Occupied = false;
         }
@@ -123,7 +123,7 @@ namespace CSharpOOP
             // Create 5 seats as a default.
             Seats = new Seat[] { new Seat(true), new Seat(true), new Seat(), new Seat(), new Seat() };
             Motor = new Motor();
-            Odometer = new Odometer();
+           // Odometer = new Odometer();
             FuelTank = new FuelTank();
         }
         public Car(string make, string model, string color, int maxOccupancy)
@@ -138,14 +138,14 @@ namespace CSharpOOP
                 Seats[i] = new Seat();
             }
             Motor = new Motor();
-            Odometer = new Odometer();
+            //Odometer = new Odometer();
             FuelTank = new FuelTank();
         }
 
         public override string ToString()
         {
             // This uses LINQ, don't sweat it if it doesn't make sense just yet, was just answering Jia's question.
-            return $"A {Color} {Make} {Model} with {Seats.Length} seats ({Seats.Count(x => x.Occupied == true)} of which {(Seats.Count(x => x.Occupied == true) == 1 ? "is" : "are")} occupied), with {Odometer} on the odometer, that has enough fuel to travel {FuelTank.Level * Motor.FuelEfficiency}KM.";
+            return $"A {Color} {Make} {Model} with {Seats.Length} seats ({Seats.Count(x => x.Occupied == true)} of which {(Seats.Count(x => x.Occupied == true) == 1 ? "is" : "are")} occupied),on the odometer, that has enough fuel to travel {FuelTank.Level * Motor.FuelEfficiency}KM.";
         }
     }
 }

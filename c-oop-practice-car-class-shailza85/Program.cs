@@ -15,7 +15,7 @@ namespace CSharpOOP
                 Model = "Badge Missing",
                 Color = "Rusty",
                 Motor = new Motor(4),
-                Odometer = new Odometer(564291),
+                //Odometer = new Odometer(564291),
                 FuelTank = new FuelTank()
             };
 
